@@ -1,0 +1,24 @@
+// Define ADD, addMessage(), messageReducer(), and store here:
+const ADD = 'ADD';
+
+/* este método retorna un objeto que representa la acción */
+const addMessage = (msg) => {
+  return {
+    type: ADD, 
+    message: msg
+  }
+};
+
+// Método que se encarga de procesar la acción correspondiente
+// Return an array of messages
+const messageReducer = (previousState = [], action) => {
+  switch (action.type) {
+    case ADD:
+      return [...previousState, action.message];
+      break;
+    default:
+      return previousState;
+  }
+};
+
+const store = Redux.createStore(messageReducer);

@@ -1,0 +1,15 @@
+const addMessage = (message) => {
+  return {
+    type: 'ADD',
+    message: message
+  }
+};
+
+// Retorna un objeto que contiene la función (que recibe como parámetro el mensaje) que deseamos asociar con redux 
+function mapDispatchToProps(dispatch) {
+  return {
+    submitNewMessage: function(msg) { 
+      dispatch(addMessage(msg));
+    }
+  }
+}
